@@ -1,1 +1,1 @@
-/home/catboy/git/rdice/target/debug/rdice: /home/catboy/git/rdice/src/main.rs
+/home/catboy/git/rdice/rdice/target/debug/rdice: /home/catboy/git/rdice/rdice/src/main.rs

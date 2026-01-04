@@ -4,7 +4,7 @@ pkgver=1
 pkgrel=1
 pkgdesc="a command that generate a random number between the ones you gave him"
 arch=('x86_64')
-url="https://github.com/TheCrabevariable/RDice.git"
+url="https://github.com/TheCrabevariable/rdice.git"
 makedepends=(git) # 'bzr', 'git', 'mercurial' or 'subversion'
 options=()
 install=
@@ -14,12 +14,10 @@ sha256sums=('SKIP')
 
 build() {
 	cd "$srcdir/${pkgname%-VCS}"
-	./autogen.sh
-	./configure --prefix=/usr
-	make
+	cargo build --release --locked
 }
 
 package() {
 	cd "$srcdir/${pkgname%-VCS}"
-	make DESTDIR="$pkgdir/" install
+	install -Dm755 target/release/rdice "$pkgdir/usr/bin/rdice"
 }
